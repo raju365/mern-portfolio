@@ -1,4 +1,4 @@
-import recipeAppImage from '../images/recipeapp.png';
+import recipeApp from '../images/recipeApp.png';
 export const projects = [
   {
     title: "MERN E-Commerce",
@@ -13,7 +13,7 @@ export const projects = [
     tech: ["React", "API"],
     live: "https://recipeapp-raju365.vercel.app/",
     github: "https://github.com/raju365/ReactPractices/tree/main/project1",
-    image: recipeAppImage,
+    image: recipeApp,
   },
   {
     title: "Admin Dashboard",
