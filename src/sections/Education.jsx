@@ -21,7 +21,7 @@ const timeline = [
     desc: "Focused on modern React workflows, component-based architecture, and UI performance.",
   },
   {
-    year: "2025",
+    year: "2024-2025",
     title: "PGDCA",
     place: "Droan college, Kumaun University",
     desc: "Strengthened practical knowledge in software development and applications.",
