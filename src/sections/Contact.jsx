@@ -42,7 +42,7 @@ const Contact = () => {
                            after:w-0 after:h-[2px] after:bg-purple-400
                            group-hover:after:w-full after:transition-all"
               >
-                your@email.com
+                rajubarman2nd@email.com
               </a>
             </div>
 
