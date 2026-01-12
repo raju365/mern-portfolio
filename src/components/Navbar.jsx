@@ -28,7 +28,7 @@ const Navbar = () => {
         });
       },
       {
-        threshold: 0.6,
+        rootMargin: "-40% 0px -40% 0px",
       }
     );
 

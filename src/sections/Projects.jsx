@@ -1,14 +1,13 @@
 import { motion } from "motion/react";
 import Section from "../components/Section";
 import { projects } from "../data/projects";
-import { useState } from "react";
 
 
 const Projects = () => {
  
 
   return (
-    <Section tone="default">
+    <Section id="projects" tone="default" className="scroll-mt-32">
       <div className="w-full px-6 py-20">
         <div className="max-w-6xl mx-auto">
           {/* SECTION INTRO */}
@@ -24,7 +23,7 @@ const Projects = () => {
           </div>
 
           {/* PROJECT LIST */}
-          <div id="projects" className="space-y-40">
+          <div  className="space-y-40">
             {projects.map((p, i) => (
               <motion.div
                 key={i}
@@ -45,6 +44,7 @@ const Projects = () => {
                   {/* PROJECT IMAGE */}
                   <img
                     src={p.image}
+                    loading="lazy"
                     alt={p.title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
