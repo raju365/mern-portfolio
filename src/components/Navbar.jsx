@@ -63,7 +63,7 @@ const Navbar = () => {
                     : "text-white/70 hover:text-white"
                 }
                 after:absolute after:left-0 after:-bottom-1
-                after:h-[2px] after:bg-purple-400
+                after:h-0.5 after:bg-purple-400
                 after:w-0 after:transition-all`}
             >
               {l.name}

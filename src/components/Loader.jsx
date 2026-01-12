@@ -21,7 +21,7 @@ const Loader = () => {
           }}
           className="text-4xl md:text-5xl font-semibold tracking-[0.25em]"
         >
-          RAJU-DEV
+          &lt;RAJU-DEV /&gt; 
         </motion.h1>
 
         {/* SUBTLE LINE */}
