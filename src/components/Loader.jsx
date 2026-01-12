@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 const Loader = () => {
   return (
-    <div className="fixed inset-0 z-[9999] bg-[#0b0b0f] flex items-center justify-center">
+    <div className="fixed inset-0 z-9999 bg-[#0b0b0f] flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -32,7 +32,7 @@ const Loader = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="h-[1px] w-24 bg-white/40"
+          className="h-px w-24 bg-white/40"
         />
       </motion.div>
     </div>

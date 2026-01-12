@@ -59,7 +59,7 @@ const Education = () => {
                 transition={{ duration: 0.6 }}
                 className="relative"
               >
-                <span className="absolute -left-[41px] top-1 w-3 h-3 rounded-full bg-purple-500" />
+                <span className="absolute -left-10.25 top-1 w-3 h-3 rounded-full bg-purple-500" />
 
                 <p className="text-sm text-purple-400 mb-2">{item.year}</p>
                 <h3 className="text-xl font-semibold">{item.title}</h3>
