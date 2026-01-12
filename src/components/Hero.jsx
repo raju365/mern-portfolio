@@ -4,7 +4,7 @@ import HeroText from "../components/HeroText";
 
 const Hero = () => {
   return (
-    <Section id="hero" className="items-end pt-15 pb-24 relative overflow-hidden">
+    <Section id="hero" className="items-start sm:items-end pt-28 sm:pt-45 pb-16 sm:pb-24 relative overflow-hidden">
       <div className="w-full px-6">
         <div className="max-w-6xl mx-auto relative">
 
@@ -13,7 +13,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.06 }}
             transition={{ duration: 2 }}
-            className="absolute -top-20 -left-10 text-[22vw] font-bold
+            className="absolute -top-20 -left-10 text-[38vw] sm:text-[22vw] font-bold
                        pointer-events-none select-none leading-none"
           >
             RAJU
