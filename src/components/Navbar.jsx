@@ -5,6 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 const links = [
   { name: "Home", href: "#hero", id: "hero" },
   { name: "Projects", href: "#projects", id: "projects" },
+  { name: "Education", href: "#education", id: "education" },
   { name: "About", href: "#about", id: "about" },
   { name: "Contact", href: "#contact", id: "contact" },
 ];
