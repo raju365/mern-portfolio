@@ -4,10 +4,12 @@ import HeroText from "../components/HeroText";
 
 const Hero = () => {
   return (
-    <Section id="hero" className="items-start sm:items-end pt-28 sm:pt-45 pb-16 sm:pb-24 relative overflow-hidden">
+    <Section
+      id="hero"
+      className="sm:min-h-screen items-start sm:items-end pt-28 sm:pt-48 pb-16 sm:pb-24 relative overflow-hidden"
+    >
       <div className="w-full px-6">
         <div className="max-w-6xl mx-auto relative">
-
           {/* BACKGROUND NAME WATERMARK */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -41,10 +43,7 @@ const Hero = () => {
           </motion.div>
 
           {/* MAIN HERO TEXT */}
-          <HeroText
-            text="MERN Stack Developer"
-            highlight="Developer"
-          />
+          <HeroText text="MERN Stack Developer" highlight="Developer" />
 
           {/* SUB TEXT */}
           <motion.p
@@ -53,10 +52,9 @@ const Hero = () => {
             transition={{ delay: 1, duration: 1 }}
             className="mt-12 max-w-xl text-gray-400 text-lg"
           >
-            I build scalable full-stack products with strong backend
-            logic and refined, motion-driven UI experiences.
+            I build scalable full-stack products with strong backend logic and
+            refined, motion-driven UI experiences.
           </motion.p>
-
         </div>
       </div>
     </Section>

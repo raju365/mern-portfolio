@@ -15,8 +15,8 @@ const Section = ({ children, className = "", tone = "default", id }) => {
       viewport={{ once: true, margin: "-120px" }}
       transition={{ duration: 1, ease: "easeOut" }}
       className={`flex
-        min-h-auto sm:min-h-screen
-        items-start sm:items-center pt-6 pb-6  ${tones[tone]} ${className}`}
+        min-h-auto 
+        items-center pt-6 pb-6  ${tones[tone]} ${className}`}
     >
       {children}
     </motion.section>

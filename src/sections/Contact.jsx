@@ -4,7 +4,7 @@ import Magnetic from "../components/Magnetic";
 
 const Contact = () => {
   return (
-    <Section id="contact" tone="dark" className="items-center">
+    <Section id="contact" tone="dark" className=" min-h-screen items-center">
       <div className="w-full px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT – STATEMENT */}

@@ -3,7 +3,7 @@ import Section from "../components/Section";
 
 const About = () => {
   return (
-    <Section id="about" tone="soft">
+    <Section id="about" tone="soft" className="min-h-screen items-center">
       <div className="w-full px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
 

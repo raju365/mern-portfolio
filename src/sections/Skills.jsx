@@ -21,7 +21,7 @@ const skills = [
 const Skills = () => {
   return (
     <Section id="skills">
-      <div className="w-full overflow-hidden py-12">
+      <div className="w-full  overflow-hidden py-12">
 
         {/* TOP STRIP */}
         <div className="relative">
