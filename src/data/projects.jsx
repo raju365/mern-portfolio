@@ -1,4 +1,5 @@
 import recipeApp from "../images/recipeApp.png";
+import shopx from "../images/shopx.png";
 export const projects = [
   {
     title: "ShopX E-Commerce",
@@ -13,6 +14,7 @@ export const projects = [
     ],
     live: "https://shopx-raju365.vercel.app",
     github: "https://github.com/raju365/ReactPractices/tree/main/project2",
+    image: shopx,
   },
 
   {
