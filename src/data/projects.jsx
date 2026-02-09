@@ -1,5 +1,6 @@
 import recipeApp from "../images/recipeApp.png";
 import shopx from "../images/shopx.png";
+import photoTune from "../images/PhotoTune_site.png"
 export const projects = [
   {
     title: "ShopX E-Commerce",
@@ -26,10 +27,12 @@ export const projects = [
     image: recipeApp,
   },
   {
-    title: "Admin Dashboard",
-    desc: "Role-based dashboard with analytics & charts",
-    tech: ["React", "JWT"],
-    live: "#",
-    github: "#",
-  },
+  title: "PhotoTune – Image Editing App",
+  desc: "Web-based image editor with real-time filters, tools, and 4K export support",
+  tech: ["HTML5 Canvas", "CSS3", "JavaScript"],
+  live: "#",
+  github: "https://github.com/raju365/photoTune-imageEditor",
+  image: photoTune,
+}
+
 ];
