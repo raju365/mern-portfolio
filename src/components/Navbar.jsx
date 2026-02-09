@@ -122,7 +122,7 @@ const Navbar = () => {
               ))}
 
               <a
-                href="/resume.pdf"
+                href="../images/Raju's_Resume.pdf"
                 download
                 className="mt-4 px-6 py-3 rounded-full bg-purple-600"
               >
