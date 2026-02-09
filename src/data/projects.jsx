@@ -30,7 +30,7 @@ export const projects = [
   title: "PhotoTune – Image Editing App",
   desc: "Web-based image editor with real-time filters, tools, and 4K export support",
   tech: ["HTML5 Canvas", "CSS3", "JavaScript"],
-  live: "#",
+  live: "https://phototune-raju365.vercel.app/",
   github: "https://github.com/raju365/photoTune-imageEditor",
   image: photoTune,
 }
