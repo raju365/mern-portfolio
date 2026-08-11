@@ -3,16 +3,16 @@ import { motion } from "motion/react";
 
 const timeline = [
   {
-    year: "2019 — 2022",
-    title: "Bachelor of Computer Applications (BCA)",
-    place: "Droan college, Kumaun University",
-    desc: "Built a strong foundation in computer science and programming concepts.",
+    year: "2025",
+    title: "Full Stack MERN Development",
+    place: "Sheryians Coding School, Bhopal",
+    desc: "Hands-on training in MongoDB, Express.js React, and Node.js with real-world projects.",
   },
-  {
-    year: "2023 — 6 Months",
-    title: "Frontend Developer Intern",
-    place: "Cetpa Infotech, Noida",
-    desc: "Worked on real-world frontend projects using HTML, CSS, JavaScript, and React.",
+   {
+    year: "2024-2025",
+    title: "PGDCA",
+    place: "Droan college, Kumaun University",
+    desc: "Strengthened practical knowledge in software development and applications.",
   },
   {
     year: "2024 — 3 Months",
@@ -21,17 +21,21 @@ const timeline = [
     desc: "Focused on modern React workflows, component-based architecture, and UI performance.",
   },
   {
-    year: "2024-2025",
-    title: "PGDCA",
-    place: "Droan college, Kumaun University",
-    desc: "Strengthened practical knowledge in software development and applications.",
+    year: "2023 — 6 Months",
+    title: "Frontend Developer Intern",
+    place: "Cetpa Infotech, Noida",
+    desc: "Worked on real-world frontend projects using HTML, CSS, JavaScript, and React.",
   },
   {
-    year: "2025",
-    title: "Full Stack MERN Development",
-    place: "Sheryians Coding School, Bhopal",
-    desc: "Hands-on training in MongoDB, Express.js React, and Node.js with real-world projects.",
+    year: "2019 — 2022",
+    title: "Bachelor of Computer Applications (BCA)",
+    place: "Droan college, Kumaun University",
+    desc: "Built a strong foundation in computer science and programming concepts.",
   },
+  
+  
+ 
+  
 ];
 
 const Education = () => {
