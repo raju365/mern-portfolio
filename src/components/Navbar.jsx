@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FiMenu, FiX } from "react-icons/fi";
-
+import resume from "../images/Raju's_Resume.pdf";
 const links = [
   { name: "Home", href: "#hero", id: "hero" },
   { name: "Projects", href: "#projects", id: "projects" },
@@ -71,7 +71,7 @@ const Navbar = () => {
           ))}
 
           <a
-            href="/resume.pdf"
+            href={resume}
             download
             className="ml-4 px-4 py-2 text-sm rounded-full
               bg-purple-600 hover:bg-purple-700 transition"
