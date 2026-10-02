@@ -1,7 +1,27 @@
 import orivai from "../images/OrivAi.png";
 import shopx from "../images/shopx.png";
 import photoTune from "../images/PhotoTune_site.png";
+import studyBuddy from "../images/studyBuddy.png";
+
 export const projects = [
+  {
+    title: "Study Buddy - AI Doubt Solver + Live Peer Study Rooms",
+    desc: "Built an AI-powered doubt-solving platform where students get instant Gemini-generated explanations, with a unique AI-to-Peer Handoff that matches students stuck on the same topic into a live Socket.IO study room.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO",
+      "Gemini API",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Motion",
+    ],
+    live: "https://studybuddy365.vercel.app",
+    github: "https://github.com/raju365/study_buddy",
+    image: studyBuddy,
+  },
   {
     title: "Oriv AI - Full Stack AI Voice Assistant",
     desc: "Developed a real-time AI voice assistant with chat history, authentication, and natural speech interaction using the MERN stack and Socket.IO.",
