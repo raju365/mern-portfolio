@@ -1,7 +1,7 @@
 import orivai from "../images/OrivAi.png";
 import shopx from "../images/shopx.png";
 import photoTune from "../images/PhotoTune_site.png";
-import studyBuddy from "../images/studyBuddy.png";
+import studyBuddy from "../images/studybuddy.png";
 
 export const projects = [
   {
