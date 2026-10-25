@@ -1,38 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background: #0f0f0f;
-  color: white;
+@theme {
+  --color-brand: #d94f2b;
+  --color-brand-dark: #a63a20;
+  --color-brand-soft: #fff1ee;
+  --color-ink: #050505;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
+
+@layer base {
+  html,
+  body {
+    background: #000;
+  }
+  body {
+    color: #fff;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  section {
+    scroll-margin-top: 120px;
+  }
+}
+
+/* ---------- Marquee ---------- */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .animate-marquee {
-  animation: marquee 22s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
+/* ---------- Custom cursor ---------- */
 .cursor {
   position: fixed;
   width: 18px;
   height: 18px;
   border-radius: 50%;
   pointer-events: none;
-  background: rgba(168, 85, 247, 0.8);
+  background: rgba(217, 79, 43, 0.85);
   transform: translate(-50%, -50%);
   transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
   z-index: 9999;
   mix-blend-mode: difference;
 }
-
 .cursor-hover {
   width: 40px;
   height: 40px;
 }
-section {
-  scroll-margin-top: 120px;
+
+/* ---------- Hero background: orange glow + faded dot grid ---------- */
+.hero-bg {
+  position: relative;
+  background: radial-gradient(
+    60% 45% at 50% 0%,
+    rgba(217, 79, 43, 0.22),
+    transparent 70%
+  );
+}
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000, transparent 75%);
+}
+
+/* ---------- Boxed word / tag with square corner handles ---------- */
+.handle-box {
+  --handle: #fff;
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgba(217, 79, 43, 0.7);
+}
+.handle-box.on-light {
+  --handle: #111;
+}
+.handle-box > i {
+  font-style: normal;
+}
+.handle-box::before,
+.handle-box::after,
+.handle-box > i::before,
+.handle-box > i::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: var(--handle);
+}
+.handle-box::before {
+  top: -3px;
+  left: -3px;
+}
+.handle-box::after {
+  top: -3px;
+  right: -3px;
+}
+.handle-box > i::before {
+  bottom: -3px;
+  left: -3px;
+}
+.handle-box > i::after {
+  bottom: -3px;
+  right: -3px;
+}
+
+/* ---------- Giant outlined wordmark (footer) ---------- */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
 }

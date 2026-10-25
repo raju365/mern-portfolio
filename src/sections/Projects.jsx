@@ -1,114 +1,126 @@
-import { motion } from "motion/react";
 import Section from "../components/Section";
+import SectionTag from "../components/SectionTag";
 import { projects } from "../data/projects";
-
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 
 const Projects = () => {
- 
-
   return (
-    <Section id="projects" tone="default" className="scroll-mt-32">
-      <div className="w-full px-6 py-20">
-        <div className="max-w-6xl mx-auto">
+    <Section id="projects" tone="default">
+      <div className="w-full px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-6xl">
           {/* SECTION INTRO */}
-          <div className="mb-32">
-            <p className="text-sm uppercase tracking-widest text-gray-500">
-              Selected Work
-            </p>
-            <h2 className="text-5xl md:text-6xl font-bold mt-4">
-              Projects that
-              <br />
-              <span className="text-purple-400">define my craft</span>
+          <div className="mb-16 text-center">
+            <SectionTag>Selected Work</SectionTag>
+            <h2 className="mt-6 text-4xl font-medium leading-tight md:text-6xl">
+              Projects that <span className="text-brand">define my craft</span>
             </h2>
           </div>
 
-          {/* PROJECT LIST */}
-          <div  className="space-y-40">
-            {projects.map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 120 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="grid md:grid-cols-2 gap-20 items-center cursor-pointer"
-               
-              >
-                {/* VISUAL BLOCK */}
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.4 }}
-                  className={`relative h-[320px] md:h-[420px] rounded-2xl
-    border border-white/10 overflow-hidden
-    ${i % 2 !== 0 ? "md:order-2" : ""}`}
+          {/* STACKING CARDS: each card sticks, the next one slides over it */}
+          <div className="relative pb-10">
+            {projects.map((p, i) => {
+              const orange = i % 2 === 0;
+
+              return (
+                <div
+                  key={p.title}
+                  className="sticky mb-10"
+                  style={{ top: 96 + i * 20 }}
                 >
-                  {/* PROJECT IMAGE */}
-                  <img
-                    src={p.image}
-                    loading="lazy"
-                    alt={p.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-
-                  {/* DARK OVERLAY */}
-                  <div className="absolute inset-0 bg-black/30" />
-
-                  {/* NUMBER WATERMARK */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center
-                  text-6xl font-bold text-white opacity-[0.08]"
+                  <article
+                    className={`grid items-center gap-8 rounded-3xl p-6 shadow-[0_-24px_40px_rgba(0,0,0,0.6)]
+                      md:min-h-[460px] md:grid-cols-2 md:gap-12 md:p-10
+                      ${
+                        orange
+                          ? "bg-brand text-white"
+                          : "border border-white/10 bg-ink text-white"
+                      }`}
                   >
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                </motion.div>
+                    {/* CONTENT */}
+                    <div className={orange ? "" : "md:order-2"}>
+                      <p
+                        className={`text-sm font-medium tracking-widest ${
+                          orange ? "text-white/70" : "text-brand"
+                        }`}
+                      >
+                        {String(i + 1).padStart(2, "0")} / PROJECT
+                      </p>
 
-                {/* CONTENT */}
-                <div className={`${i % 2 !== 0 ? "md:order-1" : ""}`}>
-                  <h3 className="text-3xl md:text-4xl font-semibold">
-                    {p.title}
-                  </h3>
+                      <h3 className="mt-3 text-2xl font-medium leading-tight md:text-4xl">
+                        {p.title}
+                      </h3>
 
-                  <p className="text-gray-400 mt-6 leading-relaxed">{p.desc}</p>
+                      <p
+                        className={`mt-5 leading-relaxed ${
+                          orange ? "text-white/85" : "text-white/60"
+                        }`}
+                      >
+                        {p.desc}
+                      </p>
 
-                  <p className="mt-8 text-sm text-purple-400">
-                    {p.tech.join(" • ")}
-                  </p>
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {p.tech.map((t) => (
+                          <span
+                            key={t}
+                            className={`rounded-full px-3 py-1 text-xs ${
+                              orange
+                                ? "bg-black/20 text-white"
+                                : "border border-white/10 bg-white/5 text-white/70"
+                            }`}
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
 
-                  {/* LINKS */}
-                  <div className="mt-10 flex gap-8 text-sm">
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
-                      className="relative group"
+                      <div className="mt-8 flex flex-wrap gap-3 text-sm">
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 font-semibold transition hover:brightness-110 ${
+                            orange
+                              ? "bg-white text-black"
+                              : "bg-linear-to-b from-brand to-brand-dark text-white"
+                          }`}
+                        >
+                          Live Preview <FiArrowUpRight />
+                        </a>
+
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 transition ${
+                            orange
+                              ? "border-white/50 hover:bg-white/10"
+                              : "border-white/15 hover:bg-white/5"
+                          }`}
+                        >
+                          <FiGithub /> GitHub
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* IMAGE */}
+                    <div
+                      className={`group relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10
+                        ${orange ? "" : "md:order-1"}`}
                     >
-                      Live Preview
-                      <span
-                        className="block h-[1px] w-0 bg-purple-400
-                        group-hover:w-full transition-all mt-1"
+                      <img
+                        src={p.image}
+                        loading="lazy"
+                        alt={p.title}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       />
-                    </a>
-
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
-                      className="relative group"
-                    >
-                      GitHub
-                      <span
-                        className="block h-[1px] w-0 bg-purple-400
-                        group-hover:w-full transition-all mt-1"
-                      />
-                    </a>
-                  </div>
+                    </div>
+                  </article>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
-
-      
     </Section>
   );
 };

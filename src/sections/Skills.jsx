@@ -1,11 +1,12 @@
 import Section from "../components/Section";
+import SectionTag from "../components/SectionTag";
+import { FaReact, FaNodeJs, FaDatabase, FaGitAlt } from "react-icons/fa";
 import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-  FaGitAlt,
-} from "react-icons/fa";
-import { SiExpress, SiMongodb, SiTailwindcss, SiJsonwebtokens } from "react-icons/si";
+  SiExpress,
+  SiMongodb,
+  SiTailwindcss,
+  SiJsonwebtokens,
+} from "react-icons/si";
 
 const skills = [
   { name: "React", icon: <FaReact /> },
@@ -21,33 +22,32 @@ const skills = [
 const Skills = () => {
   return (
     <Section id="skills">
-      <div className="w-full  overflow-hidden py-12">
+      <div className="w-full overflow-hidden py-16">
+        <div className="mb-10 text-center">
+          <SectionTag>Tech Stack</SectionTag>
+        </div>
 
-        {/* TOP STRIP */}
         <div className="relative">
-          <div className="flex gap-20 text-4xl opacity-70 animate-marquee">
+          {/* w-max + per-item margin so the -50% loop is seamless */}
+          <div className="flex w-max animate-marquee">
             {skills.concat(skills).map((skill, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4
-                           hover:opacity-100 transition-opacity"
+                className="mr-20 flex items-center gap-4 font-display text-3xl
+                           text-white/70 transition-colors hover:text-white md:text-4xl"
               >
-                <span className="text-purple-400 text-3xl">
-                  {skill.icon}
-                </span>
-                <span className="whitespace-nowrap">
-                  {skill.name}
-                </span>
+                <span className="text-brand">{skill.icon}</span>
+                <span className="whitespace-nowrap">{skill.name}</span>
               </div>
             ))}
           </div>
 
-          {/* GRADIENT MASK (edges fade) */}
-          <div className="pointer-events-none absolute inset-0
-                          bg-gradient-to-r
-                          from-[#0b0b0f] via-transparent to-[#0b0b0f]" />
+          {/* Edge fades */}
+          <div
+            className="pointer-events-none absolute inset-0
+                       bg-[linear-gradient(to_right,#000_0%,transparent_12%,transparent_88%,#000_100%)]"
+          />
         </div>
-
       </div>
     </Section>
   );

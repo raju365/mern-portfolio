@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiDownload } from "react-icons/fi";
 import resume from "../images/Raju's_Resume.pdf";
+
 const links = [
   { name: "Home", href: "#hero", id: "hero" },
   { name: "Projects", href: "#projects", id: "projects" },
@@ -10,11 +11,20 @@ const links = [
   { name: "Contact", href: "#contact", id: "contact" },
 ];
 
+const Logo = ({ className = "" }) => (
+  <a
+    href="#hero"
+    className={`font-display text-xl font-medium tracking-tight ${className}`}
+  >
+    Raju<span className="text-brand">.</span>dev
+  </a>
+);
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("hero");
 
-  // 🔥 ACTIVE LINK ON SCROLL
+  // Active link on scroll
   useEffect(() => {
     const sections = links
       .map((l) => document.getElementById(l.id))
@@ -28,9 +38,7 @@ const Navbar = () => {
           }
         });
       },
-      {
-        rootMargin: "-40% 0px -40% 0px",
-      }
+      { rootMargin: "-40% 0px -40% 0px" }
     );
 
     sections.forEach((sec) => observer.observe(sec));
@@ -42,56 +50,61 @@ const Navbar = () => {
 
   return (
     <>
-      {/* DESKTOP FLOATING NAV */}
-      <motion.nav
+      {/* DESKTOP HEADER: logo | floating pill | resume */}
+      <motion.header
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 hidden md:block"
       >
-        <div
-          className="flex items-center gap-8 px-8 py-3 rounded-full
-          backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl"
-        >
-          {links.map((l) => (
-            <a
-              key={l.name}
-              href={l.href}
-              className={`relative text-sm transition
-                ${
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5">
+          <Logo className="pointer-events-auto" />
+
+          <nav
+            className="pointer-events-auto flex items-center gap-1 rounded-xl
+                       border border-white/10 bg-black/60 p-1.5 backdrop-blur-xl"
+          >
+            {links.map((l) => (
+              <a
+                key={l.name}
+                href={l.href}
+                className={`rounded-lg px-4 py-1.5 text-sm transition ${
                   active === l.id
-                    ? "text-white after:w-full"
-                    : "text-white/70 hover:text-white"
-                }
-                after:absolute after:left-0 after:-bottom-1
-                after:h-0.5 after:bg-purple-400
-                after:w-0 after:transition-all`}
-            >
-              {l.name}
-            </a>
-          ))}
+                    ? "bg-white/10 text-white"
+                    : "text-white/60 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {l.name}
+              </a>
+            ))}
+          </nav>
 
           <a
             href={resume}
             download
-            className="ml-4 px-4 py-2 text-sm rounded-full
-              bg-purple-600 hover:bg-purple-700 transition"
+            className="pointer-events-auto flex items-center gap-2 rounded-full border
+                       border-brand/60 bg-brand/10 px-5 py-2 text-sm transition
+                       hover:bg-brand/20"
           >
-            Resume
+            <FiDownload size={14} /> Resume
           </a>
         </div>
-      </motion.nav>
+      </motion.header>
 
-      {/* MOBILE MENU BUTTON */}
-      <div className="md:hidden fixed top-4 right-4 z-50">
+      {/* MOBILE: logo + menu button */}
+      <div className="fixed left-5 top-5 z-50 md:hidden">
+        <Logo />
+      </div>
+      <div className="fixed right-4 top-4 z-50 md:hidden">
         <button
           onClick={() => setOpen(true)}
-          className="p-3 rounded-full backdrop-blur-lg bg-white/10 border border-white/20"
+          aria-label="Open menu"
+          className="rounded-full border border-white/15 bg-black/60 p-3 backdrop-blur-lg"
         >
           <FiMenu />
         </button>
       </div>
 
-      {/* MOBILE SLIDE UP MENU */}
+      {/* MOBILE SLIDE-UP MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -99,22 +112,24 @@ const Navbar = () => {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl"
           >
-            <div className="absolute top-6 right-6">
-              <FiX className="text-2xl" onClick={() => setOpen(false)} />
-            </div>
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              className="absolute right-6 top-6"
+            >
+              <FiX className="text-2xl" />
+            </button>
 
-            <div className="h-full flex flex-col justify-center items-center gap-8 text-xl">
+            <div className="flex h-full flex-col items-center justify-center gap-8 font-display text-2xl">
               {links.map((l) => (
                 <a
                   key={l.name}
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className={`transition ${
-                    active === l.id
-                      ? "text-purple-400"
-                      : "hover:text-purple-400"
+                    active === l.id ? "text-brand" : "hover:text-brand"
                   }`}
                 >
                   {l.name}
@@ -122,9 +137,9 @@ const Navbar = () => {
               ))}
 
               <a
-                href="../images/Raju's_Resume.pdf"
+                href={resume}
                 download
-                className="mt-4 px-6 py-3 rounded-full bg-purple-600"
+                className="mt-4 rounded-lg bg-linear-to-b from-brand to-brand-dark px-6 py-3 text-lg"
               >
                 Download Resume
               </a>

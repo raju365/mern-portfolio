@@ -2,7 +2,7 @@ import Grain from "./Grain";
 
 const Layout = ({ children }) => {
   return (
-    <main className="bg-[#0b0b0f] text-[#eaeaea] overflow-hidden relative">
+    <main className="bg-black text-white overflow-x-clip relative">
       {children}
       <Grain />
     </main>
